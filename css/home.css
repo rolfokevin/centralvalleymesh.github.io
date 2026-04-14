@@ -742,10 +742,6 @@
   .hero-badge { font-size: 10px; letter-spacing: 0.12em; padding: 4px 12px; }
 }
 
-edia (max-width: 600px) {
-  .live-bar-inner { grid-template-columns: repeat(2, 1fr); }
-  .live-stat:nth-child(3) { display: none; }
-}
 
 /* ── Widget header row ── */
 .widget-header-row {

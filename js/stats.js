@@ -19,7 +19,12 @@
   const TIMEOUT = 8000;
 
   function sig() {
-    return { mode: 'cors', signal: AbortSignal.timeout(TIMEOUT) };
+    if (typeof AbortSignal.timeout === 'function') {
+      return { mode: 'cors', signal: AbortSignal.timeout(TIMEOUT) };
+    }
+    const ctrl = new AbortController();
+    setTimeout(() => ctrl.abort(), TIMEOUT);
+    return { mode: 'cors', signal: ctrl.signal };
   }
 
   function fmt(n) {
